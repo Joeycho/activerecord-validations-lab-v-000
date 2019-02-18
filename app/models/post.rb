@@ -1,3 +1,4 @@
+require 'pry'
 class MyValidator < ActiveModel::Validator
   #{ in: %w(Won't Believe Secret Top[number] Guess) }
   def validate(record)
