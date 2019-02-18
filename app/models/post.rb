@@ -3,9 +3,8 @@ class MyValidator < ActiveModel::Validator
 
   #{ in: %w(Won't Believe Secret Top[number] Guess) }
   def validate(record)
-    binding.pry
-    if record.valid?
-      record.errors << 'Not valid'
+    if record.title == nil
+      record.errors[:title] << 'empty title'
     elsif !record.title.include? "Won't Believe" || "Secret" || "Top[number]" || "Guess"
       record.errors[:title] << 'title error'
     end
