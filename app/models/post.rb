@@ -1,3 +1,12 @@
+class MyValidator < ActiveModel::Validator
+  #{ in: %w(Won't Believe Secret Top[number] Guess) }
+  def validate(record)
+    unless record.title.include? "Won't Believe" | "Secret" | "Top[number]" | "Guess"
+      record.errors[:title] << 'title error'
+    end
+  end
+end
+
 class Post < ActiveRecord::Base
   include ActiveModel::Validations
   validates_with MyValidator
@@ -9,11 +18,4 @@ class Post < ActiveRecord::Base
 end
 
 
-class MyValidator < ActiveModel::Validator
-  #{ in: %w(Won't Believe Secret Top[number] Guess) }
-  def validate(record)
-    unless record.title.include? "Won't Believe" | "Secret" | "Top[number]" | "Guess"
-      record.errors[:title] << 'title error'
-    end
-  end
-end
+
