@@ -9,7 +9,7 @@ class MyValidator < ActiveModel::Validator
       record.errors[:title] << 'title error'
     end
 
-    
+
   end
 end
 
