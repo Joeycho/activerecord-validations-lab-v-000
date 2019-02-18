@@ -13,7 +13,7 @@ class MyValidator < ActiveModel::Validator
   #{ in: %w(Won't Believe Secret Top[number] Guess) }
   def validate(record)
     unless record.title.include? "Won't Believe" | "Secret" | "Top[number]" | "Guess"
-      record.errors[:name] << 'Need a name starting with X please!'
+      record.errors[:title] << 'Need a name starting with X please!'
     end
   end
 end
