@@ -3,7 +3,6 @@ class MyValidator < ActiveModel::Validator
 
   #{ in: %w(Won't Believe Secret Top[number] Guess) }
   def validate(record)
-    binding.pry
     unless record.title.include? "Won't Believe" || "Secret" || "Top[number]" || "Guess"
       record.errors[:title] << 'title error'
     end
@@ -12,7 +11,6 @@ end
 
 class Post < ActiveRecord::Base
   include ActiveModel::Validations
-
 
   validates :title, presence: true
   validates :content, length: { minimum: 250 }
