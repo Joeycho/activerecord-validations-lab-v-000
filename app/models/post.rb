@@ -14,4 +14,3 @@ class MyValidator < ActiveModel::Validator
     end
   end
 end
- 
