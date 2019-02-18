@@ -1,7 +1,7 @@
 class MyValidator < ActiveModel::Validator
   #{ in: %w(Won't Believe Secret Top[number] Guess) }
   def validate(record)
-    unless record.title.include? "Won't Believe" | "Secret" | "Top[number]" | "Guess"
+    unless record.title.include? "Won't Believe" || "Secret" || "Top[number]" || "Guess"
       record.errors[:title] << 'title error'
     end
   end
